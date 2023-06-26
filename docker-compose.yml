@@ -25,7 +25,7 @@ services:
       - PLEX_CLAIM= #optional
     volumes:
       - plex_config:/config
-      - /volume1/Data:/data
+      - <Local Data Dir>:/data
     restart: unless-stopped
 
   prowlarr:
@@ -54,7 +54,7 @@ services:
       - TZ=America/Los_Angeles
     volumes:
       - sonarr_config:/config
-      - /volume1/Data:/data
+      - <Local Data Dir>:/data
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -70,7 +70,7 @@ services:
       - TZ=America/Los_Angeles
     volumes:
       - radarr_config:/config
-      - /volume1/Data:/data
+      - <Local Data Dir>:/data
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -105,7 +105,7 @@ services:
       - 6881:6881
       - 6881:6881/udp
     volumes:
-      - /volume1/tesseract/openvpn:/data/vpn
+      - <OpenVPN config directory>:/data/vpn
     restart: unless-stopped
 
   qbittorrent:
@@ -119,7 +119,7 @@ services:
       - WEBUI_PORT=8080
     volumes:
       - qbittorrent_config:/config
-      - /volume1/Data:/data
+      - <Local Data Dir>:/data
     restart: unless-stopped
     depends_on:
       - openvpn
