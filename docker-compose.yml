@@ -122,4 +122,10 @@ services:
       - <Local Data Dir>:/data
     restart: unless-stopped
     depends_on:
-      - openvpn
+      openvpn:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f --retry 2 --max-time 10 --retry-delay 5 ifconfig.me || bash -c 'pkill s6-svscan'"]
+      interval: 30s
+      timeout: 10s
+      retries: 1
