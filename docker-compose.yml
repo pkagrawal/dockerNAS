@@ -92,7 +92,7 @@ services:
     restart: unless-stopped
 
   openvpn:
-    image: ghcr.io/wfg/openvpn-client:latest
+    image: ghcr.io/wfg/openvpn-client:3.1.0
     container_name: openvpn
     networks:
       - docker_network
