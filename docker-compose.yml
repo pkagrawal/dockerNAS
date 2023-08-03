@@ -18,8 +18,8 @@ services:
     container_name: plex
     network_mode: host
     environment:
-      - PUID=1026
-      - PGID=100
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Los_Angeles
       - VERSION=docker
       - PLEX_CLAIM= #optional
@@ -34,8 +34,8 @@ services:
     networks:
       - docker_network
     environment:
-      - PUID=1026
-      - PGID=100
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Los_Angeles
     volumes:
       - prowlarr_config:/config
@@ -49,8 +49,8 @@ services:
     networks:
       - docker_network
     environment:
-      - PUID=1026
-      - PGID=100
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Los_Angeles
     volumes:
       - sonarr_config:/config
@@ -65,8 +65,8 @@ services:
     networks:
       - docker_network
     environment:
-      - PUID=1026
-      - PGID=100
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Los_Angeles
     volumes:
       - radarr_config:/config
@@ -81,8 +81,8 @@ services:
     networks:
       - docker_network
     environment:
-      - PUID=1026 #optional
-      - PGID=100 #optional
+      - PUID=${PUID} #optional
+      - PGID=${PGID} #optional
       - SUBDOMAINS=${DNS_NAME}
       - TOKEN=<TOKEN>
       - LOG_FILE=true
@@ -113,8 +113,8 @@ services:
     container_name: qbittorrent
     network_mode: service:openvpn
     environment:
-      - PUID=1026
-      - PGID=100
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Los_Angeles
       - WEBUI_PORT=8080
     volumes:
